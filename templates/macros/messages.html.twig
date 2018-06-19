@@ -1,0 +1,28 @@
+{% macro default(message, icon, type, header) %}
+    <div class="message {% if type %}message--{{ type }}{% endif %}">
+        {% if icon %}<i class="{{ icon }} icon"></i>{% endif %}
+        <div class="content">
+            {% if type is not empty %}
+            <div class="header">
+                {{ header|default(type)|trans }}
+            </div>
+            {% endif %}
+            <p>{{ message|trans }}</p>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro info(message) %}
+    {% import _self as messages %}
+    {{ messages.default(message, 'info', 'info', 'runroomUi.messages.info') }}
+{% endmacro %}
+
+{% macro success(message) %}
+    {% import _self as messages %}
+    {{ messages.default(message, 'checkmark', 'success', 'runroomUi.messages.success') }}
+{% endmacro %}
+
+{% macro error(message) %}
+    {% import _self as messages %}
+    {{ messages.default(message, 'remove', 'negative', 'runroomUi.messages.error') }}
+{% endmacro %}

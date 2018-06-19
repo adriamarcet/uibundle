@@ -1,0 +1,11 @@
+# This file is part of the Frontdefenders project.
+# (c) Frontdefenders
+
+frontdefendersUi:
+  messages:
+    info: "Information"
+    success: ""
+    error: "Error"
+  breadcrumbs:
+    root: "Home"
+    title: "You are here"

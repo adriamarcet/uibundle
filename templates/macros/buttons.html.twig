@@ -1,0 +1,22 @@
+{% macro default(url, label, class, id, icon) %}
+    <a class="button {% if icon is not empty %}button--icon {% endif %}{{ class|default('') }}" {% if id is not null %} id="{{ id }}"{% endif %} href="{{ url }}">
+        {% if icon is not empty %}
+            <i class="icon {{ icon }}"></i>
+        {% endif %}
+        {% if label is not empty %}
+            {{ label|trans }}
+        {% endif %}
+    </a>
+{% endmacro %}
+
+{% macro primary(url, label, class, id, icon) %}
+    {% import _self as buttons %}
+    {% set class = 'button--primary' ~ class %}
+    {{ buttons.default(url, label, class, id, icon) }}
+{% endmacro %}
+
+{% macro submit(label) %}
+    <button class="button" type="submit">
+        {{ label }}
+    </button>
+{% endmacro %}

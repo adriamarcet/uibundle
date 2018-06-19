@@ -1,12 +1,47 @@
-<!DOCTYPE html>
-<html>
+{% set locale = app.request.locale %}
+
+<!doctype html>
+<html lang="{{ locale }}" class="non-touch">
     <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {% include 'templates/fonts.html.twig' %}
+        {% include 'templates/fontfaceobserver.html.twig' with {
+            fonts: [
+                {
+                    name: 'Muli',
+                    config: {}
+                },
+                {
+                    name: 'Frank Ruhl Libre',
+                    config: { weight: 300 }
+                },
+                {
+                    name: 'Frank Ruhl Libre',
+                    config: { weight: 600 }
+                }
+            ]
+        } %}
+        {# {% block metas %}
+            {% include 'helpers/metas.html.twig' %}
+        {% endblock %}
+        {% include 'helpers/favicon.html.twig' %}
+        {% block crp %}
+            {% include 'crp/default.html.twig' %}
+        {% endblock %} #}
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <div class="page">
+            {# {% include 'theme/header.html.twig' %}
+            {% include 'theme/aside.html.twig' %} #}
+            <main role="main" class="main">
+                {% block body %}{% endblock %}
+            </main>
+            {# {% include 'theme/footer.html.twig' %}
+            <link href="{{ asset('assets/css/styles.min.css') }}" rel="stylesheet">
+            {% block styles %}{% endblock %}
+            <script src="{{ asset('assets/js/app.min.js') }}" async defer></script>
+            {% block scripts %}{% endblock %} #}
+        </div>
     </body>
 </html>
