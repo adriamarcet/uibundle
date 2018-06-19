@@ -1,3 +1,4 @@
+$iconWidth: 10px;
 .accordion {
     &__item {
         border: solid #ccc;
@@ -7,7 +8,9 @@
     }
 
     &__header {
+        align-items: center;
         cursor: pointer;
+        display: flex;
         padding: space(.5) space(3) space(.5) space();
         position: relative;
         text-align: left;
@@ -15,10 +18,9 @@
     }
 
     &__icon {
-        $iconWidth: 10px;
-
         display: inline-block;
         height: $iconWidth;
+        margin-left: auto;
         position: relative;
         width: $iconWidth;
 

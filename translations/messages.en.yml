@@ -1,7 +1,7 @@
 # This file is part of the Frontdefenders project.
 # (c) Frontdefenders
 
-frontdefendersUi:
+frontdefenders:
   messages:
     info: "Information"
     success: ""
@@ -9,3 +9,5 @@ frontdefendersUi:
   breadcrumbs:
     root: "Home"
     title: "You are here"
+  accordion:
+    label: "Accordion Control Group Buttons"

@@ -1,0 +1,8 @@
+{% macro item(title, content, id, icon) %}
+<li class="accordion__item">
+    <button aria-controls="{{ id }}" aria-expanded="false" class="accordion__header js-accordionTrigger">{{ title }} <span aria-hidden="true" class="accordion__icon">{{ icon|default('') }}</span></button>
+    <div class="accordion__body" aria-hidden="true" id="{{ id }}">
+        {{ content|raw }}
+    </div>
+</li>
+{% endmacro %}

@@ -1,6 +1,5 @@
 import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
-import change from 'gulp-change';
 import combineMq from 'gulp-combine-mq';
 import cssnano from 'gulp-cssnano';
 import plumber from 'gulp-plumber';

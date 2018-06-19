@@ -10,14 +10,13 @@ import scripts, { SCRIPTS_FILES } from './tasks/scripts.base';
 import images, { IMAGES_FILES } from './tasks/images.base';
 import imagesSprites, { SPRITES_FILES } from './tasks/images.sprites';
 import imagesSvg, { SVG_FILES } from './tasks/images.svg';
-import favicon from './tasks/images.favicon';
 import stylesLint from './tasks/styles.lint';
 import scriptsLint from './tasks/scripts.lint';
 
 const buildStyles = gulp.series(stylesLint, styles);
 const buildCrp = gulp.series(stylesLint, stylesCrp);
 const buildScripts = gulp.series(scriptsLint, scripts);
-const buildImages = gulp.series(gulp.parallel(images, imagesSprites, imagesSvg), favicon);
+const buildImages = gulp.series(gulp.parallel(images, imagesSprites, imagesSvg));
 const build = gulp.parallel(buildStyles, buildCrp, buildImages, buildScripts);
 
 const WATCH_OPTIONS = { usePolling: true };
