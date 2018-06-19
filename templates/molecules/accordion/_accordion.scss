@@ -1,0 +1,49 @@
+.accordion {
+    &__item {
+        border: solid #ccc;
+        border-width: 0 0 1px;
+
+        &:first-child { border-width: 1px 0; }
+    }
+
+    &__header {
+        cursor: pointer;
+        padding: space(.5) space(3) space(.5) space();
+        position: relative;
+        text-align: left;
+        width: 100%;
+    }
+
+    &__icon {
+        $iconWidth: 10px;
+
+        display: inline-block;
+        height: $iconWidth;
+        position: relative;
+        width: $iconWidth;
+
+        &::before,
+        &::after {
+            background-color: grey;
+            content: '';
+            display: block;
+            height: $iconWidth/5;
+            position: absolute;
+            top: $iconWidth/2.5;
+            width: $iconWidth;
+        }
+
+        &::after {
+            transform: rotate(90deg);
+
+            .open & { display: none; }
+        }
+    }
+
+    &__body {
+        display: none;
+        padding: space();
+
+        .open & { display: block; }
+    }
+}

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% set breadcrumbs = [
+    {
+        title: 'Components',
+        link: '/components'
+    },
+    {
+        title: 'Breadcrumbs'
+    }
+] %}
+
+{% block body %}
+    {% include 'molecules/breadcrumbs/breadcrumbs.html.twig' %}
+{% endblock %}

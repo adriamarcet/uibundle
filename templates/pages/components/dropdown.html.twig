@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% include 'atoms/dropdown/dropdown.html.twig' with {
+        label: 'Select a choice...',
+        choices: {
+            1: 'Choice one',
+            2: 'Choice two'
+        }
+    } only %}
+    <br>
+    {% include 'atoms/dropdown/dropdown.html.twig' with {
+        label: 'This is disabled, you can\'t choose',
+        choices: {},
+        disabled: true
+    } %}
+{% endblock %}

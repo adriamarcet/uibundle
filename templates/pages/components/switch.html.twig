@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <fieldset>
+        <legend id="checkbox-legend">Checkbox group</legend>
+        <ul aria-labelledby="checkbox-legend" role="group">
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'checkbox',
+                    label: 'This is my checkbox',
+                    key: 'checkbox1',
+                    required: true
+                } only %}
+            </li>
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'checkbox',
+                    label: 'This is my disabled checkbox',
+                    disabled: true
+                } only %}
+            </li>
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'checkbox',
+                    label: 'This is my disabled-selected checkbox',
+                    checked: true,
+                    disabled: true
+                } only %}
+            </li>
+        </ul>
+    </fieldset>
+    <br>
+    <fieldset>
+        <legend id="radio-legend">Radio group</legend>
+        <ul aria-labelledby="radio-legend" role="radiogroup">
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'radio',
+                    name: 'switch-radio',
+                    label: 'This is my radio',
+                    key: 'radio1'
+                } only %}
+            </li>
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'radio',
+                    name: 'switch-radio',
+                    label: 'This is my other radio',
+                    key: 'radio2'
+                } only %}
+            </li>
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'radio',
+                    label: 'This is my disabled radio',
+                    disabled: true
+                } only %}
+            </li>
+            <li>
+                {% include 'atoms/switch/switch.html.twig' with {
+                    type: 'radio',
+                    label: 'This is my disabled-selected radio',
+                    checked: true,
+                    disabled: true
+                } only %}
+            </li>
+        </ul>
+    </fieldset>
+{% endblock %}
