@@ -1,8 +1,8 @@
 {% extends 'app/base.html.twig' %}
 
 {% block body %}
-    {% embed 'templates/accordion.html.twig' %}
-        {% import 'macros/m-accordion.html.twig' as accordion %}
+    {% embed 'templates/accordion/container.html.twig' %}
+        {% import 'templates/accordion/accordion.html.twig' as accordion %}
         {% block content %}
             {% for i in 1.. 8 %}
                 {% set paragraph %}
