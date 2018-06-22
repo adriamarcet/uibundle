@@ -1,0 +1,19 @@
+{% extends 'styleguide/base.html.twig' %}
+
+{% block body %}
+    {% for n in 1.. 100 %}
+        {% set content %}
+            {% for i in 1.. 200 %}
+                {% set paragraph %}
+                <p>[Content {{ loop.parent.loop.index }} - {{ loop.index }}] Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo fuga voluptatem dolore, veritatis officia eligendi qui enim obcaecati delectus, tenetur reprehenderit quae! Neque quisquam in reprehenderit doloremque odio ab quibusdam?</p>
+                {% endset %}
+                {% include 'components/accordion2/accordion.html.twig' with {
+                    title: 'Accordion title ' ~ loop.index,
+                    content: paragraph,
+                    id: 'acc-' ~ loop.parent.loop.index ~'-'~ loop.index
+                } %}
+            {% endfor %}
+        {% endset %}
+        {% include 'components/accordion2/container.html.twig' with { content: content } %}
+    {% endfor %}
+{% endblock %}

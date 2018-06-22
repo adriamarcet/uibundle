@@ -12,7 +12,7 @@ class PageController extends Controller
      */
     public function index()
     {
-        return $this->render('app/pages/home.html.twig');
+        return $this->render('styleguide/pages/home.html.twig');
     }
 
     /**
@@ -20,7 +20,7 @@ class PageController extends Controller
      */
     public function components($template = 'index')
     {
-        return $this->render('app/pages/components/'. $template .'.html.twig');
+        return $this->render('styleguide/pages/components/'. $template .'.html.twig');
     }
 
     /**
@@ -28,6 +28,6 @@ class PageController extends Controller
      */
     public function a11y($template = 'index')
     {
-        return $this->render('app/pages/a11y/'. $template .'.html.twig');
+        return $this->render('styleguide/pages/a11y/'. $template .'.html.twig');
     }
 }
