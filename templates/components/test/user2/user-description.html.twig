@@ -1,0 +1,30 @@
+{% extends 'components/test/user2/user-placeholder.html.twig' %}
+
+{% set social = user.twitter|default(false) or user.linkedin|default(false) or user.email|default(false) %}
+
+{% block extraClass %}u-flex--wrap{% endblock %}
+
+{% block description %}
+<div class="user__description u-flex u-flex--column">
+    {% if user.bio %}
+        <div class="user__bio u-wysiwyg {% if featured %}u-align-center{% endif %}">
+            {{ user.bio|raw }}
+        </div>
+    {% endif %}
+    {% if social %}
+        <div class="user__social">
+            <ul class="user__social-list u-flex {% if featured %}u-flex--justify-center{% endif %}" aria-label="{{ 'a11y.visit_user_rrss'|trans }}">
+                {% if user.twitter %}
+                    <li class="user__social-item"><a class="user__social-icon user__social-icon--twitter" href="{{ user.twitter }}" target="_blank" title="{{ 'a11y.twitter_of'|trans }} {{ user.name }}">icon-twitter</a></li>
+                {% endif %}
+                {% if user.linkedin %}
+                    <li class="user__social-item"><a class="user__social-icon user__social-icon--linkedin" href="{{ user.linkedin }}" target="_blank" title="{{ 'a11y.linkedin_of'|trans }} {{ user.name }}">icon-linkedin</a></li>
+                {% endif %}
+                {% if user.email %}
+                    <li class="user__social-item"><a class="user__social-icon user__social-icon--mail" href="mailto:{{ user.email }}" title="{{ 'a11y.email_of'|trans }} {{ user.name }}">icon-mail</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

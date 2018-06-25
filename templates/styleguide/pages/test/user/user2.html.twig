@@ -1,0 +1,33 @@
+{% extends 'styleguide/base.html.twig' %}
+
+{% set info = {
+    treatment: 'Sir',
+    image: 'https://qph.fs.quoracdn.net/main-thumb-t-78104-200-Ik0lcnMmu89WhYWw9S4NSNajxdAPd38i.jpeg',
+    name: 'Coyote',
+    fullName: 'Wile E. Coyote',
+    role: 'Genius',
+    charge: 'Carnivorous vulgaris',
+    twitter: 'http://twitter.com',
+    linkedin: 'http://linkedin.com',
+    email: 'mailto:genius@coyote.beep',
+    bio: 'Wile E. Coyote (Conocido simplemente como "El Coyote" o, en México, "Rufo Coyote", basado también en al animal real del mismo nombre, Canis latrans). A pesar de sus numerosas e ingeniosas tentativas, el Coyote no consigue nunca capturar o matar al Correcaminos. Muy al contrario, todas sus elaboradas tácticas terminan por perjudicarlo a él, convertido en la víctima de la exageradísima (e inocua) violencia de la serie, al comprar armamentos, trampas y herramientas de la marca ACME para aniquilar al Correcaminos.'
+} %}
+
+
+{% set info2 = {
+    treatment: 'Sir',
+    image: '',
+    name: 'Coyote',
+    fullName: 'Wile E. Coyote',
+    role: 'Genius',
+    charge: 'Carnivorous vulgaris'
+} %}
+
+{% block body %}
+    {% for n in 1.. 1000 %}
+        {% include 'components/test/user2/user-description.html.twig' with { user: info } %}
+        <hr>
+        {% include 'components/test/user2/user-placeholder.html.twig' with { user: info2 } %}
+        <hr>
+    {% endfor %}
+{% endblock %}

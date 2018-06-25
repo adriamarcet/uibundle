@@ -1,0 +1,15 @@
+{% set featured = featured|default(false) %}
+
+<div class="user u-flex {% if featured %}user--featured u-align-center{% endif %} {% block extraClass %}{% endblock %}">
+    {% block image %}{% endblock %}
+    <div class="user__info">
+        <span class="user__name u-bold">{% if user.treatment %}{{ user.treatment }} {% endif %}{{ user.fullName }}</span>
+        {% if user.role is defined and user.role %}
+            <span class="user__role">{{ user.role }}</span>
+        {% endif %}
+        {% if user.charge %}
+            <span class="user__position u-italic">{{ user.charge }}</span>
+        {% endif %}
+    </div>
+    {% block description %}{% endblock %}
+</div>

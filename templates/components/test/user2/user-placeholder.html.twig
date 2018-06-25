@@ -1,0 +1,9 @@
+{% extends 'components/test/user2/user.html.twig' %}
+
+{% block image %}
+{% if user.image %}
+    <img class="user__img" src="{{ user.image }}" itemprop="image" alt="{{ user.fullName }}" aria-hidden="true" style="max-height: 60px;">
+{% else %}
+    <img class="user__img" src="http://lionhallattorneys.com.ng/wp-content/uploads/2015/12/empty-profile.png" itemprop="image" aria-hidden="true" style="max-height: 60px;">
+{% endif %}
+{% endblock %}

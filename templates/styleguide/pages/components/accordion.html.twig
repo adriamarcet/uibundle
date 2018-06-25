@@ -1,17 +1,15 @@
 {% extends 'styleguide/base.html.twig' %}
 
 {% block body %}
-    {% for n in 1.. 100 %}
-        {% embed 'components/accordion/container.html.twig' %}
-            {% import 'components/accordion/accordion.html.twig' as accordion %}
-            {% block content %}
-                {% for i in 1.. 200 %}
-                    {% set paragraph %}
-                    <p>[Content {{ loop.parent.loop.index }} - {{ loop.index }}] Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo fuga voluptatem dolore, veritatis officia eligendi qui enim obcaecati delectus, tenetur reprehenderit quae! Neque quisquam in reprehenderit doloremque odio ab quibusdam?</p>
-                    {% endset %}
-                    {{ accordion.item('Accordion title ' ~ loop.index, paragraph, 'acc-' ~ loop.parent.loop.index ~'-'~ loop.index) }}
-                {% endfor %}
-            {% endblock %}
-        {% endembed %}
-    {% endfor %}
+    {% embed 'components/accordion/container.html.twig' %}
+        {% import 'components/accordion/accordion.html.twig' as accordion %}
+        {% block content %}
+            {% for i in 1.. 5 %}
+                {% set paragraph %}
+                <p>[Content {{ loop.parent.loop.index }} - {{ loop.index }}] Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo fuga voluptatem dolore, veritatis officia eligendi qui enim obcaecati delectus, tenetur reprehenderit quae! Neque quisquam in reprehenderit doloremque odio ab quibusdam?</p>
+                {% endset %}
+                {{ accordion.item('Accordion title ' ~ loop.index, paragraph, 'acc-' ~ loop.parent.loop.index ~'-'~ loop.index) }}
+            {% endfor %}
+        {% endblock %}
+    {% endembed %}
 {% endblock %}

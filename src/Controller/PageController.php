@@ -30,4 +30,12 @@ class PageController extends Controller
     {
         return $this->render('styleguide/pages/a11y/'. $template .'.html.twig');
     }
+
+    /**
+     * @Route("/test/{component}/{template}", name="page_a11y")
+     */
+    public function test($component, $template = 'index')
+    {
+        return $this->render('styleguide/pages/test/'. $component .'/'. $template .'.html.twig');
+    }
 }
