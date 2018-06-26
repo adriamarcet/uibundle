@@ -1,0 +1,60 @@
+{% extends 'styleguide/base.html.twig' %}
+
+{% set info = {
+    treatment: 'Sir',
+    image: 'https://qph.fs.quoracdn.net/main-thumb-t-78104-200-Ik0lcnMmu89WhYWw9S4NSNajxdAPd38i.jpeg',
+    name: 'Coyote',
+    fullName: 'Wile E. Coyote',
+    role: 'Genius',
+    charge: 'Carnivorous vulgaris',
+    twitter: 'http://twitter.com',
+    linkedin: 'http://linkedin.com',
+    email: 'mailto:genius@coyote.beep',
+    bio: 'Wile E. Coyote (Conocido simplemente como "El Coyote" o, en México, "Rufo Coyote", basado también en al animal real del mismo nombre, Canis latrans). A pesar de sus numerosas e ingeniosas tentativas, el Coyote no consigue nunca capturar o matar al Correcaminos. Muy al contrario, todas sus elaboradas tácticas terminan por perjudicarlo a él, convertido en la víctima de la exageradísima (e inocua) violencia de la serie, al comprar armamentos, trampas y herramientas de la marca ACME para aniquilar al Correcaminos.'
+} %}
+
+
+{% set info2 = {
+    treatment: 'Sir',
+    image: '',
+    name: 'Coyote',
+    fullName: 'Wile E. Coyote',
+    role: 'Genius',
+    charge: 'Carnivorous vulgaris'
+} %}
+
+{% block body %}
+    {% for n in 1.. 1000 %}
+        {% embed 'components/test/user6/container.html.twig' %}
+            {% import 'components/test/user6/user.html.twig' as user %}
+            {% block image %}
+                {{ user.image(info) }}
+            {% endblock %}
+            {% block info %}
+                {{ user.name(info) }}
+                {{ user.role(info) }}
+            {% endblock %}
+            {% block bio %}
+                {{ info.bio|raw }}
+            {% endblock %}
+            {% block social %}
+                {{ user.social(info, 'twitter') }}
+                {{ user.social(info, 'linkedin') }}
+                {{ user.social(info, 'email') }}
+            {% endblock %}
+        {% endembed %}
+        <hr>
+        {% embed 'components/test/user6/container.html.twig' %}
+            {% import 'components/test/user6/user.html.twig' as user %}
+            {% block image %}
+                {{ user.image(info2, true) }}
+            {% endblock %}
+            {% block info %}
+                {{ user.name(info2) }}
+                {{ user.role(info2) }}
+                {{ user.position(info2) }}
+            {% endblock %}
+        {% endembed %}
+        <hr>
+    {% endfor %}
+{% endblock %}

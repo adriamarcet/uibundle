@@ -1,0 +1,17 @@
+<div class="user u-flex">
+    {% if user.image %}
+        <img class="user__img" src="{{ user.image }}" itemprop="image" alt="{{ user.fullName }}" aria-hidden="true" style="max-height: 60px;">
+    {% elseif user.placeholder is defined and user.placeholder == true %}
+        <img class="user__img" src="http://lionhallattorneys.com.ng/wp-content/uploads/2015/12/empty-profile.png" itemprop="image" aria-hidden="true" style="max-height: 60px;">
+    {% endif %}
+    <div class="user__info">
+        <span class="user__name u-bold">{% if user.treatment %}{{ user.treatment }} {% endif %}{{ user.fullName }}</span>
+        {% if user.role is defined and user.role %}
+            <span class="user__role">{{ user.role }}</span>
+        {% endif %}
+        {% if user.charge %}
+            <span class="user__position u-italic">{{ user.charge }}</span>
+        {% endif %}
+        {% block description %}{% endblock %}
+    </div>
+</div>

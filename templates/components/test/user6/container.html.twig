@@ -1,0 +1,18 @@
+<div class="user u-flex {{ class|default('') }}" style="display: flex;">
+    {% block image %}{% endblock %}
+    <div class="user__info">
+        {% block info %}{% endblock %}
+        {% if block('bio') is defined %}
+        <div class="user__bio u-wysiwyg">
+            {{ block('bio') }}
+        </div>
+        {% endif %}
+        {% if block('social') is defined %}
+        <div class="user__social">
+            <ul class="user__social-list u-flex" aria-label="{{ 'a11y.visit_user_rrss'|trans }}">
+                {{ block('social') }}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</div>

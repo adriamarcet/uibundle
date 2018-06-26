@@ -1,0 +1,31 @@
+{% macro image(info, placeholder) %}
+    {% if info.image %}
+    <img class="user__img" src="{{ info.image }}" itemprop="image" alt="{{ info.fullName }}" aria-hidden="true" style="max-height: 60px;">
+    {% elseif placeholder %}
+    <img class="user__img" src="http://lionhallattorneys.com.ng/wp-content/uploads/2015/12/empty-profile.png" itemprop="image" alt="{{ info.fullName }}" aria-hidden="true" style="max-height: 60px;">
+    {% endif %}
+{% endmacro %}
+
+{% macro name(info) %}
+    <h2 class="user__name u-bold">{% if info.treatment %}{{ info.treatment }} {% endif %}{{ info.fullName }}</h2>
+{% endmacro %}
+
+{% macro role(info) %}
+    <div class="user__role">{{ info.role }}</div>
+{% endmacro %}
+
+{% macro position(info) %}
+    <i class="user__position u-italic">{{ info.charge }}</i>
+{% endmacro %}
+
+{% macro bio(info) %}
+    {% if info.bio is defined %}
+    <div class="user__bio u-wysiwyg">
+        {{ info.bio|raw }}
+    </div>
+    {% endif %}
+{% endmacro %}
+
+{% macro social(info, network) %}
+    <li class="user__social-item"><a class="user__social-icon user__social-icon--{{ network }}" href="{{ info[network] }}" target="_blank" title="{{ 'a11y.' ~ network ~ '_of'|trans }} {{ info.name }}">icon-{{ network }}</a></li>
+{% endmacro %}
